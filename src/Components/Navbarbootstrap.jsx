@@ -1,41 +1,28 @@
-import { useState } from "react";
+import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import Home from "./Home";
+import { Link } from "react-router-dom";
 import Signup from "./Signup";
 import Pricing from "./Pricing";
 
 function Navbarbootstrap() {
-  const [showComponent, setShowComponent] = useState(null);
-
-  const handleLinkClick = (component) => {
-    setShowComponent(component);
-  };
-
-  const handleSignupSubmit = (formData) => {
-    console.log(formData);
-  };
-
   return (
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={() => handleLinkClick(<Home />)}>Home</Nav.Link>
-            <Nav.Link
-              onClick={() =>
-                handleLinkClick(<Signup onSubmit={handleSignupSubmit} />)
-              }
-            >
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/product" className="nav-link">
+              Product
+            </Link>
+            <Link to="/signup" className="nav-link">
               Signup
-            </Nav.Link>
-            <Nav.Link onClick={() => handleLinkClick(<Pricing />)}>
-              Pricing
-            </Nav.Link>
+            </Link>
           </Nav>
         </Container>
       </Navbar>
-      <Container className="mt-3">{showComponent}</Container>
     </>
   );
 }

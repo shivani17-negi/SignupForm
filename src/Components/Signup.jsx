@@ -1,11 +1,11 @@
+
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import "./Signup.css"; 
+import "./Signup.css";
 
-function SignupForm({ onSubmit }) {
+function Signup({ onSubmit }) {
   const initialFormData = {
-    name: "",
-    lastName: "",
+    Email: "",
     password: "",
   };
 
@@ -23,48 +23,38 @@ function SignupForm({ onSubmit }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formBasicName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          style={{ width: "200px", height: "40px" }}
-        />
-      </Form.Group>
+    <div className="container" style={{ display:"flex",justifyContent:"center" ,marginTop:"15px"}}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter your email"
+            name="Email"
+            value={formData.Email}
+            onChange={handleChange}
+            style={{ width: "200px", height: "40px" }}
+          />
+        </Form.Group>
 
-      <Form.Group controlId="formBasicLastName">
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter last name"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-          style={{ width: "200px", height: "40px" }}
-        />
-      </Form.Group>
-
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          style={{ width: "200px", height: "40px" }}
-        />
-      </Form.Group>
-      <br />
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            style={{ width: "200px", height: "40px" }}
+          />
+        </Form.Group>
+        <br />
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </div>
   );
 }
 
-export default SignupForm;
+export default Signup;
